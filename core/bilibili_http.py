@@ -202,16 +202,17 @@ class BilibiliHttp:
             pass
         return code == 0
 
-    def get_user_video_list(self, mid: str,count: int=30) -> list:
+    def get_user_video_list(self, mid: str, pn: int=1, count: int=30) -> list:
         """
         get user video list
         """
 
         headers = self.post_data.video_list_headers.value
-        query = get_query(ck=self.ck_str, mid=mid, ps=count, pn=1)
+        query = get_query(ck=self.ck_str, mid=mid, ps=count, pn=pn)
         headers['path'] = f'/x/space/wbi/arc/search?{query}'
         headers['cookie'] = self.ck_str
         get_video_list_url = self.api.get_video_list_url.value.format(query)
         video_res = self.session.get(url=get_video_list_url, headers=headers).json()
+        # print(video_res)
         video_list = video_res.get('data', {}).get('list', {}).get('vlist', [])
         return video_list
