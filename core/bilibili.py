@@ -175,14 +175,28 @@ class Bilibili:
             sever_push(self.log.replace("</br>", "\n"),
                        config.SERVER_KEY)
 
-    
-    # 输出bvids列表
-    def my_video_list(self,mid: str,count: int=30):
+    # 用户视频列表
+    def video_list_all(self, mid: str, pn: int=1, count: int=30):
+        video_list=[]
 
-        video_list = self.bilibili_http.get_user_video_list(mid,count)
-        print(video_list)
+        while True:
+            list = self.bilibili_http.get_user_video_list(mid, pn, count)
+            # print(type(list))
+            # print(len(list))
+
+            if len(list) == 0:
+                return video_list
+            else:
+                video_list.extend(list)
+                pn += 1
+    
+    # 输出用户视频列表
+    def user_video_list(self, mid: str, count: int=30):
+        video_list = self.video_list_all(mid, count=count)
         bvids = []
+        print(mid)
+        print("bilibili用户：{}，共投稿{}部视频".format(video_list[0]['author'], len(video_list)))
         for video in video_list:
-            print(video['bvid'],video['title'])
+            print(video['bvid'], video['title'])
             bvids.append(video['bvid'])
         return bvids
