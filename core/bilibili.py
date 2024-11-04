@@ -174,3 +174,15 @@ class Bilibili:
         if config.SERVER_PUSH_OR_NOT:
             sever_push(self.log.replace("</br>", "\n"),
                        config.SERVER_KEY)
+
+    
+    # 输出bvids列表
+    def my_video_list(self,mid: str,count: int=30):
+
+        video_list = self.bilibili_http.get_user_video_list(mid,count)
+        print(video_list)
+        bvids = []
+        for video in video_list:
+            print(video['bvid'],video['title'])
+            bvids.append(video['bvid'])
+        return bvids
