@@ -1,8 +1,10 @@
 name: test
 
 on:
-  schedule:
-    - cron: '2 0 * * *'  
+  push:
+    branches:
+      - get_user_videolists
+        
   workflow_dispatch:  
 
 jobs:
