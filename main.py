@@ -19,9 +19,9 @@ if __name__ == '__main__':
     # 去看剧
     # mid = '3546766586678158'
     # 白色苹果冻
-    # mid = '1794984662'
+    mid = '1794984662'
     # litscorpi
-    mid = '431316421'
+    # mid = '431316421'
     count = 30
     bvids_list = bilibili.user_video_list(mid, count)
     print(bvids_list)
