@@ -1,10 +1,6 @@
 name: test
 
-on:
-  push:
-    branches:
-      - get_user_videolists
-        
+on:     
   workflow_dispatch:  
 
 jobs:
