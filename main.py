@@ -10,7 +10,8 @@ from os import environ
 import random
 
 if __name__ == '__main__':
-    ck_list = config.COOKIE_LIST
+    cookies = os.environ.get('COOKIES')
+    ck_list = cookies.split(",")
     # for ck in ck_list:
     ck = random.choice(ck_list)
     # 获取指定用户的视频列表，mid 为用户id
@@ -22,6 +23,6 @@ if __name__ == '__main__':
     # mid = '1794984662'
     # litscorpi
     # mid = '431316421'
-    count = 30
-    bvids_list = bilibili.user_video_list(mid, count)
+    
+    bvids_list = bilibili.user_video_list(mid)
     print(bvids_list)
