@@ -22,7 +22,7 @@ if __name__ == '__main__':
     # 白色苹果冻
     # mid = '1794984662'
     # litscorpi
-    # mid = '431316421'
+    mid = '431316421'
     
     bvids_list = bilibili.user_video_list(mid)
     print(bvids_list)
