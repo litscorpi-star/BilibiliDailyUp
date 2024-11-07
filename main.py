@@ -6,7 +6,7 @@ Project Address: https://github.com/Wyatt1026/BilibiliDailyUp
 
 from core.bilibili import Bilibili
 from config import config
-from os import environ
+import os
 import random
 
 if __name__ == '__main__':
