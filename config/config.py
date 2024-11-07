@@ -1,7 +1,7 @@
 """
 The config for this script, you can read the description in README.md
 """
-
+import os
 LIKE_OR_NOT = True
 # 投币时是否点赞
 
