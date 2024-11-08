@@ -18,7 +18,7 @@ if __name__ == '__main__':
     # 修改mid即可获取该用户的 bvids 列表
     bilibili = Bilibili(ck)
     # 去看剧
-    mid = '3546766586678158'
+    # mid = '3546766586678158'
     # 白色苹果冻
     # mid = '1794984662'
     # litscorpi
