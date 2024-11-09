@@ -174,3 +174,30 @@ class Bilibili:
         if config.SERVER_PUSH_OR_NOT:
             sever_push(self.log.replace("</br>", "\n"),
                        config.SERVER_KEY)
+
+
+    def test_info(self):
+        self.log_and_push(self.bilibili_http.get_info())
+        usename = self.bilibili_http.get_name()
+        return usename
+
+    def relation_list_all(self, mid: str, pn: int=1, ps: int=50):
+        relation_list = []
+        while True:
+            list = self.bilibili_http.relation_list(mid, pn, ps)
+            if list is None:
+                break
+            pn += 1
+            relation_list.extend(list)
+
+        return relation_list
+
+
+    def relation_unfollow(self, mid: str):
+        rec = self.bilibili_http.relation_modify(mid)
+        if rec.get('code') == 0:
+            self.log_and_push('取关成功')
+        else:
+            self.log_and_push('取关失败-' + rec.get('message'))
+
+        time.sleep(1)
