@@ -119,3 +119,39 @@ class PostData(Enum):
     comics_sign_data = {
         "platform": "android"
     }
+    
+    click_like_data = {
+
+        'bvid': '',
+        'like': 1,
+        'csrf': ''
+    }
+
+    shoucang_data = {
+
+        'Rid': '',
+        'type': 2,
+        'csrf': '',
+        'add_media_ids': 0,
+
+    }
+
+    reply_data = {
+        'oid': '',
+        'type': 1,
+        'message': '666',
+        'plat': 1,
+        'csrf': ''
+    }
+
+    sanlian_data = {
+        'bvid': '',
+        'csrf': ''
+    }
+
+    relation_data = {
+        'fid': '',
+        'act': '2',
+        're_src': '',
+        'csrf': ''
+    }
