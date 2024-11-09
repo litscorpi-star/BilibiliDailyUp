@@ -212,8 +212,8 @@ class BilibiliHttp:
             cookies=self.ck).json()
         user_data = info_res.get('data', {})
 
-        name = user_data.get('name', '未知')
-        return name
+        # name = user_data.get('name', '未知')
+        return user_data
 
     def relation_list(self, mid: str, pn: int, ps: int) -> list:
         """
