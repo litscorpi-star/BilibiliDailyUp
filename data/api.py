@@ -19,4 +19,12 @@ class Api(Enum):
     silver_to_coin_url = 'https://api.live.bilibili.com/xlive/revenue/v1/wallet/silver2coin'
     comics_sign_url = 'https://manga.bilibili.com/twirp/activity.v1.Activity/ClockIn'
     comics_check_url = "https://manga.bilibili.com/twirp/activity.v1.Activity/GetClockInInfo"
+    VIDEO_INFO = "https://api.bilibili.com/x/web-interface/view"
+    watch_video_click_url = 'https://api.bilibili.com/x/click-interface/click/web/h5'
+    click_like_url = 'https://api.bilibili.com/x/web-interface/archive/like'
+    shoucang_url = 'https://api.bilibili.com/x/v3/fav/resource/deal'
+    sanlian_url = 'https://api.bilibili.com/x/web-interface/archive/like/triple'
+    reply_url = 'https://api.bilibili.com/x/v2/reply/add'
+    relation_url = 'https://api.bilibili.com/x/relation/followings'
+    relation_modify_url = 'https://api.bilibili.com/x/relation/modify'
 
