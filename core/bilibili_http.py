@@ -201,3 +201,44 @@ class BilibiliHttp:
             print(e)
             pass
         return code == 0
+
+    def get_name(self) -> str:
+        """
+        get the user name
+        """
+        info_res = self.session.get(
+            url=self.api.info_url.value,
+            headers=self.post_data.headers.value,
+            cookies=self.ck).json()
+        user_data = info_res.get('data', {})
+
+        name = user_data.get('name', '未知')
+        return name
+
+    def relation_list(self, mid: str, pn: int, ps: int) -> list:
+        """
+        get user relation list
+        """
+
+        headers = self.post_data.video_list_headers.value
+        # query = get_query(ck=self.ck_str, vmid=mid, ps=ps, pn=pn)
+        # headers['path'] = f'/x/space/wbi/arc/search?{query}'
+        headers['cookie'] = self.ck_str
+        # get_video_list_url = self.api.get_video_list_url.value.format(query)
+        relation_res = self.session.get(url=self.api.relation_url.value, params={'vmid': mid, 'pn': pn, 'ps': ps}, headers=headers).json()
+        print(relation_res)
+        data = relation_res.get('data', {}).get('list', None)
+        return data
+
+    def relation_modify(self, mid: str):
+        """
+        modify relation
+        """
+        modify_data = self.post_data.relation_data.value
+        modify_data['csrf'] = get_csrf(self.ck_str)
+        modify_data['fid'] = mid
+        modify_res = self.session.post(
+            url=self.api.relation_modify_url.value, data=modify_data, cookies=self.ck,
+            headers=self.post_data.headers.value).json()
+        print(modify_res)
+        return modify_res
