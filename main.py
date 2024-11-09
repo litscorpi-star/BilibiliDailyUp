@@ -24,7 +24,7 @@ if __name__ == '__main__':
     # 筛选关注日期小于2024-11-01的数据，默认取关没有互粉且非特别关注，没有加入任何组的用户
     relation_date_str = '2024-11-1'
     
-    # 多用户要注意选取对应uid的CK值,填写对应的mid值
+    # 多用户要注意选取对应uid的CK值
     ck = ck_list[4]
     bilibili = Bilibili(ck)
     user_data = bilibili.test_info()
