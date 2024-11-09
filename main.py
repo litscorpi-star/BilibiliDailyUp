@@ -32,7 +32,7 @@ if __name__ == '__main__':
     username = user_data.get('name', '未知')
    
     list = bilibili.relation_list_all(mid)
-    username =bilibili.test_info()
+    
     # print(list)
     print(f'{username}共关注了{len(list)}个用户')
     # print(mid_list(list))
