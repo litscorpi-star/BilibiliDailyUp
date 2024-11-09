@@ -178,8 +178,8 @@ class Bilibili:
 
     def test_info(self):
         self.log_and_push(self.bilibili_http.get_info())
-        usename = self.bilibili_http.get_name()
-        return usename
+        user_data = self.bilibili_http.get_name()
+        return user_data
 
     def relation_list_all(self, mid: str, pn: int=1, ps: int=50):
         relation_list = []
