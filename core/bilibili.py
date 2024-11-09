@@ -196,8 +196,8 @@ class Bilibili:
     def relation_unfollow(self, mid: str):
         rec = self.bilibili_http.relation_modify(mid)
         if rec.get('code') == 0:
-            self.log_and_push('取关成功')
+            self.log_and_push(f'{mid}取关成功')
         else:
-            self.log_and_push('取关失败-' + rec.get('message'))
+            self.log_and_push(f'{mid}取关失败-' + rec.get('message'))
 
         time.sleep(1)
