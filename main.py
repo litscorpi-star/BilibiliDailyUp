@@ -20,19 +20,17 @@ if __name__ == '__main__':
     def uname_list(list):
         return [item['uname'] for item in list]
     
-    # 要修改日期和mid两个参数
+    # 要修改日期
     # 筛选关注日期小于2024-11-01的数据，默认取关没有互粉且非特别关注，没有加入任何组的用户
-    relation_date_str = '2024-10-15'
+    relation_date_str = '2024-11-1'
     
     # 多用户要注意选取对应uid的CK值,填写对应的mid值
-    ck = ck_list[1]
+    ck = ck_list[4]
     bilibili = Bilibili(ck)
-    bilibili.test_info()
-    # 去看剧
-    mid = '3546766586678158'
-    #用户冷月星华, uid为3546776470555432,获取关注列表
-    #白色苹果冻, uid为1794984662
-    # mid = '1794984662'
+    user_data = bilibili.test_info()
+    mid = user_data.get('mid')
+    username = user_data.get('name', '未知')
+   
     list = bilibili.relation_list_all(mid)
     username =bilibili.test_info()
     # print(list)
@@ -73,7 +71,7 @@ if __name__ == '__main__':
     # 取关
     for un_mid in un_mid_list:
 
-        print(f'{username}取关{un_mid}')
+        # print(f'{username}取关{un_mid}')
         bilibili.relation_unfollow(un_mid)
 
     print('取关结束')
