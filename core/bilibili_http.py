@@ -226,7 +226,7 @@ class BilibiliHttp:
         headers['cookie'] = self.ck_str
         # get_video_list_url = self.api.get_video_list_url.value.format(query)
         relation_res = self.session.get(url=self.api.relation_url.value, params={'vmid': mid, 'pn': pn, 'ps': ps}, headers=headers).json()
-        print(relation_res)
+        # print(relation_res)
         data = relation_res.get('data', {}).get('list', None)
         return data
 
